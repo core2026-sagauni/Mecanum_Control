@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		},
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

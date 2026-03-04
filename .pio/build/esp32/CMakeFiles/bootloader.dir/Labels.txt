@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/CMakeFiles/bootloader
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/CMakeFiles/bootloader.rule
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/CMakeFiles/bootloader-complete.rule
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/yoshida/study/Mecanum_Control/.pio/build/esp32/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
