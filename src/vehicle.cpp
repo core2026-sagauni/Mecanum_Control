@@ -8,7 +8,6 @@
 
 namespace vehicle
 {
-    // グローバルインスタンスの実装
     vehicle_msgs::vehicle_msg frontLeft;
     vehicle_msgs::vehicle_msg frontRight;
     vehicle_msgs::vehicle_msg backLeft;
@@ -28,11 +27,6 @@ namespace vehicle
     }
 
     void tick(){
-        // ここでセンサーからの入力を処理して、vx, vy, omegaを計算する
-        float vx = 0.0f;    // 前進/後進速度
-        float vy = 0.0f;    // 左右移動速度
-        float omega = 0.0f; // 回転速度
-        setMotorSpeeds(vx, vy, omega);
         sendCanMessages();
     }
     

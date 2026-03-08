@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "Mecanum_Control",
-    "project_version":    "0380d50-dirty",
+    "project_version":    "5383e40-dirty",
     "project_path":       "/home/yoshida/study/Mecanum_Control",
     "idf_path":           "/home/yoshida/.platformio/packages/framework-espidf",
     "build_dir":          "/home/yoshida/study/Mecanum_Control/.pio/build/esp32",
@@ -1045,7 +1045,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/yoshida/study/Mecanum_Control/.pio/build/esp32/esp-idf/src/libsrc.a",
-            "sources": [ "/home/yoshida/study/Mecanum_Control/src/CMakeLists.txt", "/home/yoshida/study/Mecanum_Control/src/can.cpp", "/home/yoshida/study/Mecanum_Control/src/main.cpp", "/home/yoshida/study/Mecanum_Control/src/vehicle.cpp", "/home/yoshida/study/Mecanum_Control/src/vehicle_msgs.cpp" ],
+            "sources": [ "/home/yoshida/study/Mecanum_Control/src/CMakeLists.txt", "/home/yoshida/study/Mecanum_Control/src/can.cpp", "/home/yoshida/study/Mecanum_Control/src/controller.cpp", "/home/yoshida/study/Mecanum_Control/src/main.cpp", "/home/yoshida/study/Mecanum_Control/src/vehicle.cpp", "/home/yoshida/study/Mecanum_Control/src/vehicle_msgs.cpp" ],
             "include_dirs": []
         },
         "tcp_transport": {
