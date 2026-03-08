@@ -59,25 +59,72 @@ namespace controller
     }
 
     void receive(){
-        uint8_t packet[UART_BUF_SIZE];
-        int len = uart_read_bytes(UART_NUM, packet, UART_BUF_SIZE, pdMS_TO_TICKS(100));
+        uint8_t data[UART_BUF_SIZE];
+        int len = uart_read_bytes(UART_NUM, data, UART_BUF_SIZE, pdMS_TO_TICKS(100));
         if (len > 0) {
-            if (parsePacket(packet)) {
+            // Null終端を追加
+            data[len] = '\0';
+            if (parsePacket((char*)data, len)) {
+                ESP_LOGI(TAG, "Parsed: vx=%d, vy=%d, v_rotation=%d", vx, vy, v_rotation);
             } else {
-                ESP_LOGW(TAG, "Invalid packet received");
+                ESP_LOGW(TAG, "Invalid packet received: %s", (char*)data);
             }            
         }
         return ;
     }
-    // パケット解析
-    bool parsePacket(const uint8_t* packet) {
-        if (packet[0] != 0xAA || packet[1] != 0x55) {
-            return false; // ヘッダが不正
+    
+    // パケット解析 (例: "00,0001,E8,20,24,12")
+    // フィールド2=vx, フィールド3=vy, フィールド4=v_rotation
+    bool parsePacket(const char* packet, int len) {
+        if (packet == nullptr || len == 0) {
+            return false;
         }
-        vx = (packet[2] << 8) | packet[3];
-        vy = (packet[4] << 8) | packet[5];
-        v_rotation = (packet[6] << 8) | packet[7];
-        vehicle::setMotorSpeeds(vx, vy, v_rotation);
-        return true;
+        
+        // データをコピーして処理
+        char buffer[UART_BUF_SIZE];
+        strncpy(buffer, packet, len);
+        buffer[len] = '\0';
+        
+        // カンマ(とコロン)で分割してパース
+        char* token;
+        char* rest = buffer;
+        int fieldIndex = 0;
+        int parsedVx = 0, parsedVy = 0, parsedRotation = 0;
+        
+        while ((token = strtok_r(rest, ",:", &rest)) != nullptr) {
+            switch (fieldIndex) {
+                case 0: // ヘッダー (例: "00")
+                    break;
+                case 1: // ID等 (例: "0001")
+                    break;
+                case 2: // vx (例: "E8")
+                    parsedVx = (int)strtol(token, nullptr, 16);
+                    break;
+                case 3: // vy (例: "20")
+                    parsedVy = (int)strtol(token, nullptr, 16);
+                    break;
+                case 4: // v_rotation (例: "24")
+                    parsedRotation = (int)strtol(token, nullptr, 16);
+                    break;
+                case 5: // チェックサム等 (例: "12")
+                    break;
+            }
+            fieldIndex++;
+        }
+        
+        if (fieldIndex >= 5) {
+            vx = parsedVx;
+            vy = parsedVy;
+            v_rotation = parsedRotation;
+            
+            float norm_vx = (vx - 128) / 128.0f;
+            float norm_vy = (vy - 128) / 128.0f;
+            float norm_rotation = (v_rotation - 128) / 128.0f;
+            
+            vehicle::setMotorSpeeds(norm_vx, norm_vy, norm_rotation);
+            return true;
+        }
+        
+        return false;
     }
 } // namespace controller

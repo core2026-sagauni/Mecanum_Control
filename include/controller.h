@@ -7,7 +7,7 @@ namespace controller
 {
     void init();
     void receive();
-    bool parsePacket(const uint8_t* packet);
+    bool parsePacket(const char* packet, int len);
     int send(const char* data);
     
 } // namespace controller
